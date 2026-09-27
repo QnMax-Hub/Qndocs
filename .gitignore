@@ -1,0 +1,22 @@
+# ---- 运行时数据：含数据库账号密码，绝对不要提交 ----
+/data/*
+!/data/.gitkeep
+/uploads/*
+!/uploads/.gitkeep
+
+# ---- 日志与临时文件 ----
+*.log
+*.tmp
+*.bak
+
+# ---- 编辑器 / 操作系统 ----
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+.reasonix/
+
+# ---- 依赖（本项目零依赖，仅作占位） ----
+/vendor/
+node_modules/
