@@ -1,0 +1,11 @@
+{
+  "title": "线性蓝 Linear Blue",
+  "desc": "默认主题：细线边框、蓝色主色、干净留白的线性风格。可作为独立文档嵌入软件，也可切换为整合文档站。",
+  "version": "1.2.0",
+  "templates": {
+    "doc.php": "独立文档整页（无页头页脚）",
+    "site.php": "整合文档站整页（页头 + 侧边目录 + 右栏目录 + 页脚）",
+    "fragment.php": "片段：样式 + 正文"
+  },
+  "styles": ["style.css", "site.css"]
+}

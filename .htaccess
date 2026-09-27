@@ -1,0 +1,20 @@
+# Qndocs 伪静态规则（Apache）
+# 若服务器不支持 .htaccess，请在后台「站点设置」中关闭 URL 伪静态。
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)\.html$ index.php?p=$1.html [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^search$ index.php?p=__search [L,QSA]
+</IfModule>
+
+DirectoryIndex index.php index.html
+Options -Indexes
+
+<FilesMatch "\.(sql|log|md|json)$">
+  Require all denied
+</FilesMatch>

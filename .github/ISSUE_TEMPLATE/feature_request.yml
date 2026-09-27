@@ -1,0 +1,43 @@
+name: 功能建议
+description: 提出一个新功能或改进想法
+title: "[建议] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        先说明一点：Qndocs 刻意保持**原生 PHP + 零依赖**，所以像"引入 Composer 包"
+        "改用 Vue/React 重写后台"这类建议基本不会被采纳。除此之外都很欢迎。
+
+  - type: checkboxes
+    id: precheck
+    attributes:
+      label: 前置检查
+      options:
+        - label: 我已经搜索过现有 Issue 与 README，确认这不是已有功能
+          required: true
+        - label: 这个建议不需要引入外部依赖或前端构建步骤
+          required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 你遇到的实际问题
+      description: 请描述场景，而不是直接给方案。比如"我要把文档嵌进 Qt 客户端，但…"
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: 你希望怎么解决
+      placeholder: 如果你已经想好接口长什么样，写在这里
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 你现在是怎么绕过的
+      description: 临时方案能说明问题有多真实。
+    validations:
+      required: false

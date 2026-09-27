@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /data/
+Disallow: /includes/
+Allow: /
+
+# 站点地图：把域名换成你自己的站点地址
+# Sitemap: https://docs.example.com/index.php?p=__sitemap

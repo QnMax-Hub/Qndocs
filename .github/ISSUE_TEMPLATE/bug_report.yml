@@ -1,0 +1,118 @@
+name: Bug 报告
+description: 报告一个可复现的问题
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！信息越全，定位越快。如果只是"打不开"这种模糊现象，
+        请先按下面的步骤拿到真实报错：在 `data/` 下新建空文件 `debug.lock`，
+        再刷新页面；或直接访问 `/check.php` 看数据表与目录检查结果。
+
+  - type: checkboxes
+    id: precheck
+    attributes:
+      label: 前置检查
+      options:
+        - label: 我已经搜索过现有 Issue，确认没有重复
+          required: true
+        - label: 我已经试过访问 `/check.php`，并按提示补建过缺失的表或字段
+          required: false
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 问题描述
+      description: 发生了什么？你期望发生什么？
+      placeholder: |
+        实际：…
+        期望：…
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      placeholder: |
+        1. 后台「站点设置 → 输出模式」切到整合文档站
+        2. 打开 /install.html?fragment=1
+        3. 看到…
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: 出问题的访问地址（可去掉你的真实域名）
+      placeholder: "https://docs.example.com/install.html?fragment=1"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: mode
+    attributes:
+      label: 站点输出模式
+      options:
+        - 独立文档（默认）
+        - 整合文档站
+        - 两种都有问题
+    validations:
+      required: true
+
+  - type: dropdown
+    id: form
+    attributes:
+      label: 取用形式
+      options:
+        - 独立整页 /slug.html
+        - "?fragment=1（样式 + 正文）"
+        - "?bare=1（只有正文）"
+        - "?text=1（纯文本）"
+        - 后台页面
+        - 与形式无关
+    validations:
+      required: true
+
+  - type: input
+    id: php
+    attributes:
+      label: PHP 版本
+      placeholder: "8.2.20"
+    validations:
+      required: true
+
+  - type: input
+    id: db
+    attributes:
+      label: MySQL / MariaDB 版本
+      placeholder: "MySQL 5.7.44"
+    validations:
+      required: true
+
+  - type: input
+    id: server
+    attributes:
+      label: Web 服务器与伪静态配置
+      description: 是否启用了「URL 伪静态」？nginx 用户请注明是否加了 rewrite 规则。
+      placeholder: "nginx 1.30.5 + 已加 rewrite，伪静态已开启"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Qndocs 版本
+      description: 见 `includes/bootstrap.php` 里的 `QN_VERSION`，或后台「工具」页。
+      placeholder: "1.2.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 报错或日志
+      description: 页面报错原文、`data/logs/app.log` 片段，或 `/check.php` 的检查结果。
+      render: text
+    validations:
+      required: false

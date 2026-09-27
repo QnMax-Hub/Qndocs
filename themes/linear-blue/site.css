@@ -1,0 +1,153 @@
+@charset "UTF-8";
+/* ==========================================================================
+   Qndocs 主题：linear-blue · 整合文档站框架样式
+   仅在后台「站点设置 → 输出模式 = 整合文档站」时加载。
+   变量由 style.css 的 .qn-doc 与这里的 .qn-site 共同继承（见 qn_theme_css）。
+   ========================================================================== */
+
+.qn-site {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-soft);
+  color: var(--text);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+.qn-site a { color: var(--primary); text-decoration: none; }
+.qn-site a:hover { color: var(--primary-dark); }
+
+/* ------------------------------------------------------------------ 页头 */
+
+.qn-site-header {
+  position: sticky; top: 0; z-index: 60;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+.qn-site-header-in {
+  max-width: 1180px; margin: 0 auto; padding: 12px 24px;
+  display: flex; align-items: center; gap: 18px;
+}
+.qn-site-menu {
+  display: none; width: 36px; height: 32px; border: 1px solid var(--border);
+  background: #fff; border-radius: var(--radius-sm); color: var(--text-muted);
+  font-size: 1rem; cursor: pointer; line-height: 1;
+}
+.qn-site-brand { display: flex; align-items: center; gap: 10px; color: var(--text); font-weight: 600; }
+.qn-site-brand:hover { color: var(--text); }
+.qn-brand-mark {
+  width: 32px; height: 32px; border-radius: 9px; flex: 0 0 auto;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  background: linear-gradient(135deg, var(--primary), #60a5fa);
+  color: #fff; display: flex; align-items: center; justify-content: center;
+  font-size: .76rem; font-weight: 700; letter-spacing: .5px;
+}
+.qn-site-tnav { display: flex; gap: 4px; flex-wrap: wrap; flex: 1 1 auto; }
+.qn-tnav-item { padding: 5px 12px; border-radius: 999px; font-size: .88rem; color: var(--text-muted); }
+.qn-tnav-item:hover { background: var(--bg-soft); color: var(--primary); }
+.qn-tnav-item.on { background: var(--primary-soft); color: var(--primary); font-weight: 500; }
+
+/* ------------------------------------------------------------------ 三栏 */
+
+.qn-site-shell {
+  max-width: 1180px; margin: 0 auto; padding: 24px;
+  display: flex; gap: 36px; align-items: flex-start;
+}
+.qn-site-side {
+  flex: 0 0 240px; width: 240px;
+  position: sticky; top: 76px; max-height: calc(100vh - 100px); overflow-y: auto;
+  padding-right: 6px; border-right: 1px solid var(--border);
+}
+.qn-site-side-hd {
+  font-size: .74rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-muted); padding: 0 10px 10px;
+}
+.qn-site-main { flex: 1 1 auto; min-width: 0; max-width: var(--content-width); }
+.qn-site-toc { flex: 0 0 178px; width: 178px; position: sticky; top: 76px; font-size: .82rem; }
+.qn-site-toc:empty { display: none; }
+
+/* 正文卡片 */
+.qn-site-doc {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .03);
+}
+
+/* ------------------------------------------------------ 侧栏文档树 */
+
+.qn-nav { list-style: none; margin: 0; padding: 0; }
+.qn-nav-1 { margin: 0 0 2px 12px; border-left: 1px dashed var(--border); }
+.qn-nav a {
+  display: block; padding: 7px 12px; margin: 1px 0; border-radius: var(--radius-sm);
+  font-size: .89rem; color: #364152; line-height: 1.5;
+}
+.qn-nav a:hover { background: var(--bg-soft); color: var(--primary); }
+.qn-nav-item.active > a {
+  background: var(--primary-soft); color: var(--primary); font-weight: 600;
+  box-shadow: inset 2px 0 0 var(--primary);
+}
+
+/* ------------------------------------------------------ 面包屑 / 目录 / 上下篇 */
+
+.qn-site-crumb { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: .82rem; color: var(--text-muted); margin: 0 0 14px; }
+.qn-site-crumb i { font-style: normal; color: var(--border); }
+.qn-site-crumb span { color: var(--text); }
+
+.qn-toc-hd {
+  color: var(--text-muted); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 8px; padding-left: 11px;
+}
+.qn-toc-in ul { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--border); }
+.qn-toc-in a {
+  display: block; padding: 4px 10px; color: var(--text-muted); line-height: 1.5;
+  border-left: 2px solid transparent; margin-left: -1px;
+}
+.qn-toc-in a:hover { color: var(--primary); }
+.qn-toc-in a.on { color: var(--primary); border-left-color: var(--primary); font-weight: 500; }
+.qn-toc-in .lv3 a { padding-left: 22px; font-size: .78rem; }
+
+.qn-site-prevnext { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+.qn-site-pn {
+  display: flex; flex-direction: column; gap: 3px; padding: 12px 16px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff;
+}
+.qn-site-pn:hover { border-color: rgba(37, 99, 235, .35); }
+.qn-site-pn em { font-style: normal; font-size: .74rem; color: var(--text-muted); }
+.qn-site-pn span { color: var(--primary); font-weight: 500; font-size: .9rem; }
+.qn-site-pn.next { text-align: right; }
+.qn-site-pn.empty { border-style: dashed; background: transparent; }
+
+/* ------------------------------------------------------------ 页脚 */
+
+.qn-site-footer { border-top: 1px solid var(--border); background: #fff; margin-top: 20px; }
+.qn-site-footer-in {
+  max-width: 1180px; margin: 0 auto; padding: 20px 24px;
+  display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap;
+  font-size: .82rem; color: var(--text-muted);
+}
+
+/* -------------------------------------------------------- 响应式 */
+
+@media (max-width: 1100px) {
+  .qn-site-toc { display: none; }
+}
+@media (max-width: 900px) {
+  .qn-site-tnav { display: none; }
+  .qn-site-menu { display: block; }
+  .qn-site-shell { padding: 16px; gap: 0; }
+  .qn-site-side {
+    position: fixed; top: 0; left: 0; bottom: 0; z-index: 90;
+    width: 272px; background: #fff; border-right: 1px solid var(--border);
+    padding: 16px 12px; max-height: none; overflow-y: auto;
+    transform: translateX(-102%); transition: transform .22s ease;
+    box-shadow: 0 0 40px rgba(15, 23, 42, .14);
+  }
+  .qn-side-open .qn-site-side { transform: none; }
+  .qn-site-main { max-width: 100%; }
+  .qn-site-doc { padding: 20px 18px; }
+  .qn-site-prevnext { grid-template-columns: 1fr; }
+}
